@@ -1,5 +1,6 @@
 import {BeakerIcon} from '@heroicons/react/24/solid'
 import SearchBar from "@/app/components/SearchBar";
+import GetPokemonIntro from "@/app/components/GetPokemonIntro";
 
 export default function Home() {
     return (
@@ -8,6 +9,7 @@ export default function Home() {
             <p className='mt-3 m-3 text-slate-500'>Rechercher un pokémon avec le nom ou utiliser son Numéro National Pokédex
             </p>
             <SearchBar/>
+            <GetPokemonIntro/>
         </main>
     )
 }
