@@ -1,5 +1,5 @@
 import React from 'react';
-import CardPokemonHome from "@/app/components/pokemon/CardPokemonHome";
+import CardPokemonHome from "@/app/components/pokemons/CardPokemonHome";
 import {NextPage} from "next";
 
 const GetPokemonIntro: any = async () => {
