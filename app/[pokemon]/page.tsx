@@ -1,6 +1,12 @@
 import React from 'react';
 import Link from "next/link";
-
+import StatsPokemon from "@/app/components/pokemons/StatsPokemon";
+import bouclierImg from '../../public/bouclier.png'
+import coeurImg from '../../public/coeur.png'
+import combatImg from '../../public/combat.png'
+import eclatImg from '../../public/eclat.png'
+import epeeDoubleImg from '../../public/epeeDouble.png'
+import epee from '../../public/epee.png'
 const Pokemon = async ({
                      params, searchParams,
                  }: {
@@ -25,8 +31,19 @@ const Pokemon = async ({
                 <h2 className='capitalize font-bold text-2xl text-slate-800'>{data.forms[0].name}</h2>
                 <span></span>
             </div>
-            <p className='text-slate-500'>{numberId < 10 ? `#00${numberId}` : numberId< 100 ? `#0${numberId}` : `#${numberId}`}</p>
+            <p className='text-slate-500 ml-5'>{numberId < 10 ? `#00${numberId}` : numberId< 100 ? `#0${numberId}` : `#${numberId}`}</p>
             <img className='h-[350px] p-3 mt-10 rounded-3xl' style={styleBG} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${Number(params.pokemon)}.png`} alt='pokemon'/>
+            <h4 className='w-[340px] mt-7 font-medium text-xl text-slate-700'>Stats:</h4>
+            <div className='grid grid-cols-2 gap-3 w-[340px] mt-5'>
+                {
+                    data.stats.map((pokemon: any, index: number) => (
+                    <StatsPokemon key={index} stat={pokemon.base_stat} name={pokemon.stat.name} img={pokemon.stat.name === "attack" ? epee : pokemon.stat.name === "hp" ? coeurImg : pokemon.stat.name === "defense" ? bouclierImg : pokemon.stat.name === "special-attack" ? epeeDoubleImg : pokemon.stat.name === "special-defense" ? combatImg : eclatImg} />
+                ))}
+            </div>
+            <div className='mt-5 flex flex-col items-center w-[330px]'>
+                <h4 className='mt-1 text-sm font-bold text-slate-800 '>Taille: <span className='font-light text-slate-500'>{data.height * 10} cm</span></h4>
+                <h4 className='mt-1 font-bold text-sm text-slate-800'>Poids: <span className='font-light text-slate-500'>{data.weight} kg</span></h4>
+            </div>
         </div>
     );
 };
