@@ -17,8 +17,8 @@ const Pokemon = async ({
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.pokemon}`);
     const data = await res.json();
     const numberId = data.id;
-    const type = data.types[0].type.name
-    const styleBG = {
+    const type = data.types[0].type.name;
+    const styleBG =  {
         backgroundColor: type === "grass" ? "#CEE8D5" : type === "bug" ? "#CEE8D5" : type === 'fire' ? '#EBBCB4' : type === 'water' ? '#B3E2E8' : type === 'normal' ? '#FAF9F5' : type === 'poison' ? '#DAD0F8' : type === 'electric' ? '#F8F7C5' : type === 'ground' ? '#D7B692' : type === 'fairy' ? '#F8DAD0' : type === 'fighting' ? '#D7B692' : type === 'rock' ? '#D7B692' : type === 'psychic' ? '#CB9DD6' : type === 'ghost' ? '#CB9DD6' : type === 'dragon' ? '#FACC3E' :  "#DCF2EE"
     }
     return (
@@ -33,17 +33,16 @@ const Pokemon = async ({
                 <span></span>
             </div>
             <p className='text-slate-500 ml-5'>{numberId < 10 ? `#00${numberId}` : numberId< 100 ? `#0${numberId}` : `#${numberId}`}</p>
-            <img className='h-[350px] p-3 mt-10 rounded-3xl' style={styleBG} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${numberId}.png`} alt='pokemon'/>
-            <h4 className='w-[340px] mt-7 font-medium text-xl text-slate-700'>Stats:</h4>
-            <div className='grid grid-cols-2 gap-3 w-[340px] mt-5'>
+            <img className='h-[350px] min-w-[340px] p-3 mt-10 rounded-3xl' style={styleBG} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${numberId}.png`} alt='pokemon'/>
+            <div className='grid grid-cols-2 gap-3 w-[340px] mt-10'>
                 {
                     data.stats.map((pokemon: any, index: number) => (
                     <StatsPokemon key={index} stat={pokemon.base_stat} name={pokemon.stat.name} img={pokemon.stat.name === "attack" ? epee : pokemon.stat.name === "hp" ? coeurImg : pokemon.stat.name === "defense" ? bouclierImg : pokemon.stat.name === "special-attack" ? epeeDoubleImg : pokemon.stat.name === "special-defense" ? combatImg : eclatImg} />
                 ))}
             </div>
-            <div className='mt-5 flex flex-col items-center w-[330px]'>
+            <div className='mt-3 flex flex-row justify-center items-center w-[330px]'>
                 <h4 className='mt-1 text-sm font-bold text-slate-800 '>Height: <span className='font-light text-slate-500'>{data.height * 10} cm</span></h4>
-                <h4 className='mt-1 font-bold text-sm text-slate-800'>Weight: <span className='font-light text-slate-500'>{data.weight} kg</span></h4>
+                <h4 className='mt-1 font-bold text-sm text-slate-800 ml-[80px]'>Weight: <span className='font-light text-slate-500'>{data.weight} kg</span></h4>
             </div>
         </div>
     );

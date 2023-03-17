@@ -49,7 +49,7 @@ const SearchBar = () => {
             </div>
             {
                 errorSearch ?
-                    <p className='w-full flex items-center justify-center mt-2 text-red-400'>
+                    <p className='flex items-center justify-start mt-2 text-red-400'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                              strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-1">
                             <path strokeLinecap="round" strokeLinejoin="round"

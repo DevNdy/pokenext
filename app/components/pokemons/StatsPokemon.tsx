@@ -9,7 +9,7 @@ type Props = {
 }
 const StatsPokemon = ({name, stat, img}: Props) => {
     return (
-        <div className='flex items-end'>
+        <div className='flex items-end justify-center'>
             <Image src={img} alt='force' width={17} height={17} />
             <h4 className='capitalize ml-1 text-[13px] ' >{name} :</h4>
             <p className='ml-2 text-slate-500 font-light text-[12px]'>{stat}</p>
