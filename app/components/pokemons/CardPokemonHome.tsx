@@ -2,13 +2,13 @@ import React from 'react';
 import Link from "next/link";
 
 type Props = {
-    pokemon: string;
+    pokemon: any;
     index: number;
 }
 const CardPokemonHome: any = async ({pokemon, index}: Props) => {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${index + 1}/`);
     const data = await res.json();
-    const type = data.types[0].type.name
+    const type = await data.types[0].type.name
     const styleBG = {
         backgroundColor: type === "grass" ? "#CEE8D5" : type === "bug" ? "#CEE8D5" : type === 'fire' ? '#EBBCB4' : type === 'water' ? '#B3E2E8' : type === 'normal' ? '#FAF9F5' : type === 'poison' ? '#DAD0F8' : type === 'electric' ? '#F8F7C5' : type === 'ground' ? '#D7B692' : type === 'fairy' ? '#F8DAD0' : type === 'fighting' ? '#D7B692' : type === 'rock' ? '#D7B692' : type === 'psychic' ? '#CB9DD6' : type === 'ghost' ? '#CB9DD6' : type === 'dragon' ? '#FACC3E' :  "#DCF2EE"
     }
