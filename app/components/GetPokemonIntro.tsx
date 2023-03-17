@@ -3,7 +3,7 @@ import CardPokemonHome from "@/app/components/pokemons/CardPokemonHome";
 import {NextPage} from "next";
 
 const GetPokemonIntro: any = async () => {
-    const url = 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0'
+    const url = 'https://pokeapi.co/api/v2/pokemon?limit=40&offset=0'
     const res = await fetch(url);
     const data = await res.json();
 
