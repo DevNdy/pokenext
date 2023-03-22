@@ -43,7 +43,7 @@ const SearchBar = () => {
                     </svg>
                     <input type="text"
                            className="w-full bg-slate-100 h-[35px] ml-2 pl-2 focus:outline-slate-200"
-                           value={search} onChange={(e) => setSearch(e.target.value)}/>
+                           value={search} onChange={(e) => setSearch(e.target.value.toLowerCase())}/>
                 </div>
                 <button className='bg-slate-700 text-white p-2 h-[50px] ml-2 rounded-lg'>GO</button>
             </div>
